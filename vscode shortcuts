@@ -1,0 +1,9 @@
+vscode shortcuts:-
+
+line start:  fn + < (home)
+line end: fn + > (end)
+page end: fn +  pgdn/down arrow
+move by word: ctrl + < / >  to delete: ctrl + backspace
+move to next line: ctrl + enter
+toggle opened pages: ctrl + pgdn(number panel)
+verticle scroll bar on current file: ctrl + up/down arrow 

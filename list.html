@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/list.css">
+    </head>
+    <!-- <script>
+
+        // Select all edit buttons
+        const editButtons = document.querySelectorAll('.edit-button');
+        console.log("edit button");
+        let isEditing = false
+        // Add event listeners to each button
+        console.log("before for each");
+        editButtons.forEach((button) => {
+          button.addEventListener('click', (event) => {
+            const section = event.target.parentElement; // Get the parent <div> of the button
+            const paragraph = section.querySelector('.text'); // Target the <p> inside this section
+            //  isEditing  === 'true'; // Track if this section is in edit mode
+        console.log("for each");
+        
+            if (!isEditing) {
+              // Switch to edit mode: Replace <p> with <textarea>
+              const textArea = document.createElement('textarea');
+              textArea.value = paragraph.textContent; // Preserve the content
+              textArea.className = 'edit-area';
+              console.log("if");
+              paragraph.replaceWith(textArea);
+              button.textContent = 'Save';
+            } else {
+                console.log("else");
+              // Save changes: Replace <textarea> back with <p>
+              const editedText = section.querySelector('.edit-area').value;
+              const newParagraph = document.createElement('p');
+              newParagraph.className = 'editable-paragraph';
+              newParagraph.textContent = editedText;
+        
+              section.querySelector('.edit-area').replaceWith(newParagraph);
+              button.textContent = 'Edit';
+            }
+        
+            // Toggle the editing state for this section
+            section.setAttribute('data-editing', !isEditing);
+          });
+        });
+        console.log("end");
+             </script> -->
+
+    <body>
+        <div class="navbar">
+            <div class="navcontent">
+                <h3 id="title">User Blog List</h3>
+                <h3><a href="login.html">Home</a></h3>
+                <h3><a href>Add Blog</a></h3>
+                <h3><a href="registration.html">Logout</a></h3>
+            </div>
+        </div>
+        <div class="cardcontainer">
+            <div class="blog-card">
+                <input type="radio" name="select" id="tap-1" checked>
+                <input type="radio" name="select" id="tap-2">
+                <input type="radio" name="select" id="tap-3">
+                <input type="checkbox" id="imgTap">
+                <div class="sliders">
+                    <label for="tap-1" class="tap tap-1"></label>
+                    <label for="tap-2" class="tap tap-2"></label>
+                    <label for="tap-3" class="tap tap-3"></label>
+                </div>
+                <div class="inner-part">
+                    <label for="imgTap" class="img">
+                        <img class="img-1" src="#">
+                    </label>
+                    <div class="content content-1">
+                        <span>26 December 2017</span>
+                        <div class="title">
+                            Lorem Ipsum Dolor
+                        </div>
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Explicabo animi atque aliquid pariatur
+                            voluptatem numquam, quisquam. Neque est voluptates
+                            doloribus!
+                        </div>
+                        <button class="edit-button">Edit</button>
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <label for="imgTap" class="img">
+                        <img class="img-2" src="#">
+                    </label>
+                    <div class="content content-2">
+                        <span>26 December 2018</span>
+                        <div class="title">
+                            Lorem Ipsum Dolor
+                        </div>
+                        <div class="text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Ipsum eos ut consectetur numquam ullam fuga
+                            animi laudantium nobis rem molestias.
+                        </div>
+                        <button class="edit-button">Edit</button>
+                    </div>
+                </div>
+                <div class="inner-part">
+                    <label for="imgTap" class="img">
+                        <img class="img-3" src="#">
+                    </label>
+                    <div class="content content-3">
+                        <span>26 December 2019</span>
+                        <div class="title">
+                            Lorem Ipsum Dolor
+                        </div>
+                        <div class="text content-3">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Quod excepturi nemo commodi sint eum ipsam
+                            odit atque aliquam officia impedit.
+                        </div>
+                        <button class="edit-button">Edit</button>
+                       
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+        // Select all edit buttons
+
+   const editButtons = document.querySelectorAll('.edit-button');
+     console.log(editButtons);
+// Add event listeners to each button
+    editButtons.forEach((button) => {
+        console.log("for");
+  button.addEventListener('click', (event) => {
+    const section = event.target.parentElement; // Get the parent <div> of the button
+        console.log('====================================');
+        console.log(section);
+        console.log('====================================');
+    const paragraph = section.querySelector('.text'); // Target the <p> inside this section
+    let isEditing = section.getAttribute('data-editing') === 'true'; // Track if this section is in edit mode, IT IS SET TO FALSE HERE
+
+
+  
+    if (!isEditing) {
+      // Switch to edit mode: Replace <p> with <textarea>
+        console.log("if");
+      const textArea = document.createElement('textarea');
+  
+
+      textArea.value = paragraph.textContent; // Preserve the content
+      console.log(textArea.value);
+     
+//       const clonedSource = source.cloneNode(true); // Clone the source element with its content
+// target.replaceWith(clonedSource);
+
+      textArea.className = 'edit-area';
+
+      paragraph.replaceWith(textArea);
+      
+      button.textContent = 'Save';
+    } else {
+        console.log("else");
+      // Save changes: Replace <textarea> back with <p>
+      const editedText = section.querySelector('.edit-area').value;
+      const newParagraph = document.createElement('div');
+      newParagraph.className = 'text';
+      newParagraph.textContent = editedText;
+
+      section.querySelector('.edit-area').replaceWith(newParagraph);
+      button.textContent = 'Edit';
+    }
+
+    // Toggle the editing state for this section
+    section.setAttribute('data-editing', !isEditing);
+  });
+});
+
+
+
+      </script>
+        <!-- working code till one edit <script>
+        // Select all edit buttons
+
+            const editButtons = document.querySelectorAll('.edit-button');
+     console.log(editButtons);
+// Add event listeners to each button
+    editButtons.forEach((button) => {
+        console.log("for");
+  button.addEventListener('click', (event) => {
+    const section = event.target.parentElement; // Get the parent <div> of the button
+        console.log('====================================');
+        console.log(section);
+        console.log('====================================');
+    const paragraph = section.querySelector('.text'); // Target the <p> inside this section
+    let isEditing = section.getAttribute('data-editing') === 'true'; // Track if this section is in edit mode
+
+
+  
+    if (!isEditing) {
+      // Switch to edit mode: Replace <p> with <textarea>
+        console.log("if");
+      const textArea = document.createElement('textarea');
+    //   console.log(textArea);
+    //   console.log( textArea.value);
+    //   console.log(paragraph.textContent);
+      
+      textArea.value = paragraph.textContent; // Preserve the content
+      console.log(textArea.value);
+      
+      textArea.className = 'edit-area';
+
+      paragraph.replaceWith(textArea);
+      
+      button.textContent = 'Save';
+    } else {
+        console.log("else");
+      // Save changes: Replace <textarea> back with <p>
+      const editedText = section.querySelector('.edit-area').value;
+      const newParagraph = document.createElement('p');
+      newParagraph.className = 'editable-paragraph';
+      newParagraph.textContent = editedText;
+
+      section.querySelector('.edit-area').replaceWith(newParagraph);
+      button.textContent = 'Edit';
+    }
+
+    // Toggle the editing state for this section
+    section.setAttribute('data-editing', !isEditing);
+  });
+});
+
+
+
+      </script> -->
+    </body>
+</html>

@@ -1,0 +1,20 @@
+.navcontent{
+    display: flex;
+    justify-content: space-between;
+    row-gap: 10px;
+    border: solid;
+}
+.navcontent h3:nth-child(1) {
+    border: 1px solid;
+}
+
+.card{
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+}
+.blogscontainer{
+    display: flex;
+    flex-direction: column;
+   gap: 10vh;
+}
